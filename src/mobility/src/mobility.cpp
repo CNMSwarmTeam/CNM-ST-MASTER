@@ -302,7 +302,7 @@ void mobilityStateMachine(const ros::TimerEvent&) {
 				}
 
 				//If NOT returning with a target
-				else (targetDetected.data == -1)
+				else
 				{
 				
 					CNMTargetSearch();
@@ -331,7 +331,7 @@ void mobilityStateMachine(const ros::TimerEvent&) {
 
 		case STATE_MACHINE_ROTATE:
 
-			statemachineMsg.data = "ROTATING";
+			stateMachineMsg.data = "ROTATING";
 
 			if (angles::shortest_angular_distance(currentLocation.theta, goalLocation.theta) > 0.1)
 			{
@@ -730,7 +730,7 @@ void CNMTargetSearch()
 {
 
 	//if no target found but center has been found
-	else if (targetDetected.data == -1)
+	if (targetDetected.data == -1)
 	{
 		leaving = true; //bool used after a target has been returned to cause reasearching of some area in order to handle clusters better		
 		if (searchCounterLoop < 0)
