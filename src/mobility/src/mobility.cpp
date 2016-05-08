@@ -633,6 +633,7 @@ void sigintEventHandler(int sig)
 	ros::shutdown();
 }
 
+//SEARCHES for CENETER goes LEFT
 void CNMCenterSearch()
 {
 
@@ -726,6 +727,7 @@ void CNMCenterSearch()
 
 }
 
+//SEARCHES for TARGETS, goes RIGHT
 void CNMTargetSearch()
 {
 
@@ -836,6 +838,7 @@ void CNMTargetSearch()
 
 }
 
+//INITIAL RUN FUNCTION:  Drive forward to see if you find the center, 
 void CNMInitial()
 {
 
@@ -851,6 +854,7 @@ void CNMInitial()
 	driftCompensation.x = 0;
 	driftCompensation.y = 0;
 
+	//IF so go to a point in the search pattern
 	if (currentLocation.theta <= 45 * M_PI / 180)
 	{
 		searchCounterLoop = 3;
